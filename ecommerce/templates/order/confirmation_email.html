@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Potwierdzenie zamówienia</title>
+</head>
+<body>
+    <h1>Potwierdzenie zamówienia</h1>
+    <p>Dziękujemy za złożenie zamówienia.</p>
+    <p>PODSUMOWANIE ZAMÓWIENIA:</p>
+    {% for product in order.order_products.all %}
+        <p>Nazwa: {{ product.product.name }}</p>
+        <p>Cena: {{ product.product.price }}</p>
+        <p>Ilosc: {{ product.quantity }}</p>
+    {% endfor %}
+    <p>Suma: {{ order.total_price }}</p>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Przypomnienie o platnosci</title>
+</head>
+<body>
+    <h1>Bardzo prosimy o dokonanie płatności. Termin zapłaty to {{ order.payment_date }}</h1>
+    <p>PODSUMOWANIE ZAMÓWIENIA:</p>
+    {% for product in order.order_products.all %}
+        <p>Nazwa: {{ product.product.name }}</p>
+        <p>Cena: {{ product.product.price }}</p>
+        <p>Ilosc: {{ product.quantity }}</p>
+    {% endfor %}
+    <p>Suma: {{ order.total_price }}</p>
+</body>
+</html>

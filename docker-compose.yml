@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  django:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8000:8000
+    depends_on:
+      - rabbitmq
+      - celery
+
+  celery:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - rabbitmq
+
+  rabbitmq:
+    image: rabbitmq:3.9.11-management
+    ports:
+      - 5672:5672
+      - 15672:15672
